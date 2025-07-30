@@ -2,10 +2,10 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>🍕 Jhon's Pizza</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🍕 Jhon's Pizza</title>
   <style>
-    body { font-family: Arial, sans-serif; margin:0; padding:0; color:#333; }
+    body { font-family: Arial, sans-serif; margin:0; padding:0; background: #fff; color:#333; }
 
     nav {
       background-color: #c0392b;
@@ -32,83 +32,72 @@
       font-weight: bold;
     }
 
-    header {
-      background:#e74c3c;
-      color:white;
-      text-align:center;
-      padding:2rem 1rem;
+    .lang-switcher {
+      margin-left: 1rem;
+    }
+    .lang-switcher a {
+      color: white;
+      text-decoration: underline;
+      margin-left: 5px;
     }
 
     .hero {
-      background: #fef5e7;
-      padding: 2rem 1rem;
-      text-align: center;
-    }
-    .hero h1 {
-      font-size: 2rem;
-      color: #c0392b;
-    }
-    .hero p {
-      font-size: 1.2rem;
-      margin: 0.5rem 0 1rem;
-    }
-    .hero .btn-primary {
-      background: #c0392b;
+      background: #e74c3c;
       color: white;
-      padding: 0.7rem 1.5rem;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    .hero .btn-primary:hover {
-      background: #a93226;
+      text-align: center;
+      padding: 2rem 1rem;
     }
 
-    .order-btn {
+    .hero a.btn-primary {
+      display: inline-block;
       background: #fff;
       color: #c0392b;
-      border: none;
-      padding: 0.8rem 1.5rem;
-      font-size: 1rem;
+      padding: 0.8rem 1.2rem;
       font-weight: bold;
-      border-radius: 8px;
-      cursor: pointer;
+      border-radius: 5px;
+      text-decoration: none;
       margin-top: 1rem;
-      transition: background 0.3s;
     }
-    .order-btn:hover { background: #f1f1f1; }
 
-    section { padding: 2rem 1.5rem; }
+    .menu-section {
+      padding: 2rem 1.5rem;
+    }
 
     .menu-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 1.5rem;
     }
 
     .menu-item {
       border: 1px solid #eee;
-      padding: 1rem;
       border-radius: 10px;
+      overflow: hidden;
       text-align: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
     }
 
     .menu-item img {
       width: 100%;
-      border-radius: 8px;
-      margin-bottom: 0.5rem;
+      height: auto;
+      aspect-ratio: 1.2 / 1;
+      object-fit: cover;
+    }
+
+    .menu-item h4 {
+      margin: 0.5rem 0 0.25rem;
+    }
+
+    .menu-item p {
+      margin: 0 1rem 1rem;
+      font-size: 0.9rem;
     }
 
     footer {
-      background:#f3f3f3;
-      padding:1rem;
-      text-align:center;
-      font-size:0.9rem;
-    }
-
-    .cta-order {
+      background: #f3f3f3;
+      padding: 1rem;
       text-align: center;
-      margin-top: 2rem;
+      font-size: 0.9rem;
     }
 
     .whatsapp {
@@ -122,162 +111,76 @@
       text-decoration: none;
       font-weight: bold;
       box-shadow: 0 0 10px rgba(0,0,0,0.2);
-      transition: transform 0.2s;
-    }
-    .whatsapp:hover {
-      transform: scale(1.05);
-    }
-
-    .modal {
-      display: none;
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: rgba(0,0,0,0.6);
-      justify-content: center;
-      align-items: center;
-      z-index: 9999;
-    }
-    .modal-content {
-      background: white;
-      padding: 2rem;
-      border-radius: 10px;
-      width: 90%;
-      max-width: 400px;
-      text-align: center;
-    }
-    .modal input, .modal textarea {
-      width: 100%;
-      padding: 0.5rem;
-      margin-bottom: 1rem;
-      border-radius: 6px;
-      border: 1px solid #ccc;
-    }
-    .close-btn {
-      background: #c0392b;
-      color: white;
-      border: none;
-      padding: 0.5rem 1rem;
-      border-radius: 6px;
-      cursor: pointer;
     }
   </style>
 </head>
 <body>
 
-<!-- Barra de navegación -->
 <nav>
   <div class="logo">🍕 Jhon's Pizza</div>
   <ul>
-    <li><a href="#about">Inicio</a></li>
+    <li><a href="#">Inicio</a></li>
     <li><a href="#menu">Menú</a></li>
     <li><a href="#contact">Contacto</a></li>
   </ul>
+  <div class="lang-switcher">
+    <a href="#" onclick="setLang('es')">ES</a> |
+    <a href="#" onclick="setLang('en')">EN</a>
+  </div>
 </nav>
 
-<!-- Encabezado -->
-<header>
-  <h1>¡Bienvenido a🍕 Jhon's Pizza!</h1>
-  <p>Cali, Colombia — Sabor Clásico, Siempre Fresco</p>
-  <button class="order-btn" onclick="document.getElementById('orderModal').style.display='flex'">¡Ordenar ahora!</button>
-</header>
-
-<!-- Sobre nosotros -->
-<section id="about">
-  <h2>Sobre Nosotros</h2>
-  <p>Bienvenido a John’s Pizza — sirviendo a Cali con pizzas artesanales y frescas, hechas con los mejores ingredientes. ¡Come aquí, para llevar o por WhatsApp!</p>
-  <p><strong>Horario:</strong> 11:00 AM – 11:00 PM todos los días</p>
-  <p><strong>Dirección:</strong> Cra. 12b #63-04, Comuna 8, Cali, Valle del Cauca</p>
+<section class="hero">
+  <h1>¡Bienvenido a Jhon's Pizza!</h1>
+  <p>La mejor pizza casera, lista para ti.</p>
+  <a href="#menu" class="btn-primary">Ver el Menú</a>
 </section>
 
-<!-- Menú -->
-<section class="promos">
-  <h2>Promos del Mes 😍🤩</h2>
-  <div class="promo-grid">
-
-    <div class="promo-card">
-      <div class="promo-info">
-        <h3>Combo 1: Pizza Pequeña + Gaseosa 250ml</h3>
-        <p class="price">$30,000</p>
-        <p>Pizza Pequeña 21 cms sabor a elección, acompañada de gaseosa personal</p>
-      </div>
-      <img src="https://www.sortirambnens.com/wp-content/uploads/2019/02/pizza-de-peperoni.jpg" alt="Combo 1">
+<section id="menu" class="menu-section">
+  <h2>Nuestro Menú</h2>
+  <div class="menu-grid">
+    <div class="menu-item">
+      <img src="images/pizza1.jpg" alt="Pizza Pepperoni">
+      <h4>Pizza Pepperoni</h4>
+      <p>Pepperoni crujiente con queso mozzarella.</p>
     </div>
-
-    <div class="promo-card">
-      <div class="promo-info">
-        <h3>Combo 3: Pizza Grande + Gaseosa Litro</h3>
-        <p class="price">$60,000</p>
-        <p>Pizza Grande 35 Cms, 8 porciones, sabores a elección, acompañada de gaseosa litro (manzana o colombiana)</p>
-      </div>
-      <img src="https://source.unsplash.com/200x200/?large-pizza" alt="Combo 3">
+    <div class="menu-item">
+      <img src="images/pizza2.jpg" alt="Pizza Hawaiana">
+      <h4>Pizza Hawaiana</h4>
+      <p>Jamón y piña fresca sobre salsa de tomate.</p>
     </div>
-
-    <div class="promo-card">
-      <div class="promo-info">
-        <h3>Combo 2: Pizza Pequeña, Pizza Pantalón + Gaseosa</h3>
-        <p class="price">$59,900</p>
-        <p>Pizza Pantalone Tradicional, Pizza pequeña de 4 porciones y Gaseosa litro postobón.</p>
-      </div>
-      <img src="https://source.unsplash.com/200x200/?calzone" alt="Combo 2">
+    <div class="menu-item">
+      <img src="images/pizza3.jpg" alt="Pizza Vegetariana">
+      <h4>Pizza Vegetariana</h4>
+      <p>Verduras frescas: pimientos, cebolla, champiñón.</p>
     </div>
-
-    <div class="promo-card">
-      <div class="promo-info">
-        <h3>Pizza Mediana Promo DIDI 26 Cms</h3>
-        <p class="price">$35,900</p>
-        <p>Pizza 6 porciones, 26 cms, elaborada con masa artesanal, salsa napolitana y sabores a elección. (Sin Gaseosa)</p>
-      </div>
-      <img src="https://source.unsplash.com/200x200/?medium-pizza" alt="Promo Mediana">
+    <div class="menu-item">
+      <img src="images/pizza4.jpg" alt="Pizza BBQ Pollo">
+      <h4>Pizza BBQ Pollo</h4>
+      <p>Pollo a la BBQ con cebolla morada y queso.</p>
     </div>
-
-    <div class="promo-card">
-      <div class="promo-info">
-        <h3>Super Promo DIDI Mediana con Gaseosa Litro</h3>
-        <p class="price">$43,900</p>
-        <p>Pizza Mediana Promo DIDI 26 Cms sabores a elección entre hawaiana, jamón y queso o Pepperoni y Gaseosa litro según disponibilidad.</p>
-      </div>
-      <img src="https://source.unsplash.com/200x200/?pepperoni-pizza" alt="Super Promo">
-    </div>
-
   </div>
 </section>
 
-<!-- Contacto -->
 <section id="contact">
   <h2>Contacto</h2>
-  <p><strong>Teléfono:</strong> +57 300-600-5388</p>
-  <p><strong>Instagram:</strong> <a href="https://www.instagram.com/jhon.spizza/" target="_blank">jhon's pizza</a></p>
+  <p>WhatsApp: <a href="https://wa.me/573006005388" target="_blank">+57 300 600 5388</a></p>
+  <p>Dirección: Cali, Colombia</p>
 </section>
 
-<!-- Pie de página -->
 <footer>
-  <p>&copy; 2025 John’s Pizza Cali — Todos los derechos reservados.</p>
+  <p>&copy; 2025 Jhon's Pizza — Todos los derechos reservados.</p>
 </footer>
 
-<!-- Botón de WhatsApp -->
-<a class="whatsapp" href="https://wa.me/573006005388?text=¡Hola!%20Quisiera%20hacer%20un%20pedido%20en%20John's%20Pizza." target="_blank">
+<a class="whatsapp" href="https://wa.me/573006005388?text=Hola%2C%20quiero%20hacer%20un%20pedido" target="_blank">
   📲 Ordenar por WhatsApp
 </a>
 
-<!-- Modal de pedido -->
-<div id="orderModal" class="modal">
-  <div class="modal-content">
-    <h3>Haz tu pedido</h3>
-    <input type="text" placeholder="Tu nombre">
-    <input type="text" placeholder="Pizza que deseas">
-    <textarea placeholder="Instrucciones adicionales (opcional)"></textarea>
-    <button class="order-btn" onclick="alert('¡Gracias! Pedido recibido.')">Enviar Pedido</button>
-    <br><br>
-    <button class="close-btn" onclick="document.getElementById('orderModal').style.display='none'">Cerrar</button>
-  </div>
-</div>
-
 <script>
-  window.onclick = function(event) {
-    const modal = document.getElementById('orderModal');
-    if (event.target == modal) {
-      modal.style.display = "none";
+  function setLang(lang) {
+    if (lang === 'en') {
+      alert("Feature coming soon: English translation");
+    } else {
+      alert("Estás viendo la versión en español.");
     }
   }
 </script>
