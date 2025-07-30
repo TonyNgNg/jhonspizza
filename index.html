@@ -1,63 +1,239 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Jhon's Pizza</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <title>John’s Pizza Cali</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body { font-family: Arial, sans-serif; margin:0; padding:0; color:#333; }
+
+    nav {
+      background-color: #c0392b;
+      color: white;
+      padding: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    nav .logo { font-size: 1.5rem; font-weight: bold; }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1rem;
+      margin: 0;
+      padding: 0;
+    }
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    header {
+      background:#e74c3c;
+      color:white;
+      text-align:center;
+      padding:2rem 1rem;
+    }
+
+    .order-btn {
+      background: #fff;
+      color: #c0392b;
+      border: none;
+      padding: 0.8rem 1.5rem;
+      font-size: 1rem;
+      font-weight: bold;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 1rem;
+      transition: background 0.3s;
+    }
+    .order-btn:hover { background: #f1f1f1; }
+
+    section { padding: 2rem 1.5rem; }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .menu-item {
+      border: 1px solid #eee;
+      padding: 1rem;
+      border-radius: 10px;
+      text-align: center;
+    }
+
+    .menu-item img {
+      width: 100%;
+      border-radius: 8px;
+      margin-bottom: 0.5rem;
+    }
+
+    footer {
+      background:#f3f3f3;
+      padding:1rem;
+      text-align:center;
+      font-size:0.9rem;
+    }
+
+    .cta-order {
+      text-align: center;
+      margin-top: 2rem;
+    }
+
+    .whatsapp {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #25d366;
+      color: white;
+      padding: 12px 20px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: bold;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      transition: transform 0.2s;
+    }
+    .whatsapp:hover {
+      transform: scale(1.05);
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.6);
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+    .modal-content {
+      background: white;
+      padding: 2rem;
+      border-radius: 10px;
+      width: 90%;
+      max-width: 400px;
+      text-align: center;
+    }
+    .modal input, .modal textarea {
+      width: 100%;
+      padding: 0.5rem;
+      margin-bottom: 1rem;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+    .close-btn {
+      background: #c0392b;
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+  </style>
 </head>
 <body>
-  <nav class="navbar">
-    <div class="logo">🍕 Jhon's Pizza</div>
-    <ul class="nav-links">
-      <li><a href="index.html">Inicio</a></li>
-      <li><a href="menu.html">Menú</a></li>
-      <li><a href="#contacto">Contacto</a></li>
-    </ul>
-    <div class="lang-switcher">
-      <a href="#" onclick="setLanguage('es')">ES</a> |
-      <a href="#" onclick="setLanguage('en')">EN</a>
+
+<!-- Barra de navegación -->
+<nav>
+  <div class="logo">John’s Pizza</div>
+  <ul>
+    <li><a href="#about">Inicio</a></li>
+    <li><a href="#menu">Menú</a></li>
+    <li><a href="#contact">Contacto</a></li>
+  </ul>
+</nav>
+
+<!-- Encabezado -->
+<header>
+  <h1>John’s Pizza</h1>
+  <p>Cali, Colombia — Sabor Clásico, Siempre Fresco</p>
+  <button class="order-btn" onclick="document.getElementById('orderModal').style.display='flex'">¡Ordenar ahora!</button>
+</header>
+
+<!-- Sobre nosotros -->
+<section id="about">
+  <h2>Sobre Nosotros</h2>
+  <p>Bienvenido a John’s Pizza — sirviendo a Cali con pizzas artesanales y frescas, hechas con los mejores ingredientes. ¡Come aquí, para llevar o por WhatsApp!</p>
+  <p><strong>Horario:</strong> 11:00 AM – 11:00 PM todos los días</p>
+  <p><strong>Dirección:</strong> Cl. 9 #64A‑44, Gran Limonar, Cali</p>
+</section>
+
+<!-- Menú -->
+<section id="menu">
+  <h2>Nuestro Menú</h2>
+  <div class="menu-grid">
+    <div class="menu-item">
+      <img src="https://via.placeholder.com/250x150?text=Pizza+Pepperoni" alt="Pizza Pepperoni">
+      <h4>Pizza Pepperoni</h4>
+      <p>Pepperoni crujiente con base de tomate y queso derretido.</p>
+      <strong>$25.000 COP</strong>
     </div>
-    <a href="https://wa.me/573001112233" class="ordenar-btn">Ordenar por WhatsApp</a>
-  </nav>
+    <div class="menu-item">
+      <img src="https://via.placeholder.com/250x150?text=Pizza+Hawaiana" alt="Pizza Hawaiana">
+      <h4>Pizza Hawaiana</h4>
+      <p>Jamón con piña fresca en cada mordida.</p>
+      <strong>$26.000 COP</strong>
+    </div>
+    <div class="menu-item">
+      <img src="https://via.placeholder.com/250x150?text=Pizza+Vegetariana" alt="Pizza Vegetariana">
+      <h4>Pizza Vegetariana</h4>
+      <p>Pimentón, champiñón, cebolla y tomate.</p>
+      <strong>$24.000 COP</strong>
+    </div>
+    <div class="menu-item">
+      <img src="https://via.placeholder.com/250x150?text=Spinach+Alfredo" alt="Spinach Alfredo">
+      <h4>Spinach Alfredo</h4>
+      <p>Salsa cremosa de espinaca con queso mozzarella.</p>
+      <strong>$28.000 COP</strong>
+    </div>
+  </div>
+</section>
 
-  <header class="hero">
-    <h1>¡Bienvenido a Jhon's Pizza!</h1>
-    <p>La mejor pizza casera, lista para ti.</p>
-    <a href="menu.html" class="btn">Ver el Menú</a>
-  </header>
+<!-- Contacto -->
+<section id="contact">
+  <h2>Contacto</h2>
+  <p><strong>Teléfono:</strong> +57 602 608 2228</p>
+  <p><strong>Instagram:</strong> <a href="https://www.instagram.com/papajohnscolombia/" target="_blank">papajohnscolombia</a></p>
+</section>
 
-  <section class="pedido-form">
-    <h2>Haz tu pedido online</h2>
-    <form action="https://formsubmit.co/your-email@example.com" method="POST">
-      <input type="text" name="nombre" placeholder="Tu nombre" required />
-      <input type="tel" name="telefono" placeholder="Tu número" required />
-      <textarea name="pedido" placeholder="Escribe tu pedido aquí..." required></textarea>
-      <button type="submit">Enviar Pedido</button>
-    </form>
-  </section>
+<!-- Pie de página -->
+<footer>
+  <p>&copy; 2025 John’s Pizza Cali — Todos los derechos reservados.</p>
+</footer>
 
-  <section class="ubicacion">
-    <h2>Encuéntranos aquí</h2>
-    <iframe
-      src="https://www.google.com/maps/place/John's+Pizza/@3.4451085,-76.491787,15.89z/data=!4m6!3m5!1s0x8e30a7004d55445f:0xd461950314538904!8m2!3d3.4459508!4d-76.4915727!16s%2Fg%2F11mcd0s_px?entry=ttu&g_ep=EgoyMDI1MDcyNy4wIKXMDSoASAFQAw%3D%3D"
-      width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-  </section>
+<!-- Botón de WhatsApp -->
+<a class="whatsapp" href="https://wa.me/573001112233?text=¡Hola!%20Quisiera%20hacer%20un%20pedido%20en%20John's%20Pizza." target="_blank">
+  📲 Ordenar por WhatsApp
+</a>
 
-  <footer id="contacto" class="footer">
-    <h2>Contáctanos</h2>
-    <p>WhatsApp: +57 300-600-5388</p>
-    <p>Dirección: Cra. 12b #63-04, Comuna 8, Cali, Valle del Cauca</p>
-  </footer>
+<!-- Modal de pedido -->
+<div id="orderModal" class="modal">
+  <div class="modal-content">
+    <h3>Haz tu pedido</h3>
+    <input type="text" placeholder="Tu nombre">
+    <input type="text" placeholder="Pizza que deseas">
+    <textarea placeholder="Instrucciones adicionales (opcional)"></textarea>
+    <button class="order-btn" onclick="alert('¡Gracias! Pedido recibido.')">Enviar Pedido</button>
+    <br><br>
+    <button class="close-btn" onclick="document.getElementById('orderModal').style.display='none'">Cerrar</button>
+  </div>
+</div>
 
-  <script>
-    function setLanguage(lang) {
-      if (lang === 'en') {
-        window.location.href = 'index_en.html';
-      } else {
-        window.location.href = 'index.html';
-      }
+<script>
+  window.onclick = function(event) {
+    const modal = document.getElementById('orderModal');
+    if (event.target == modal) {
+      modal.style.display = "none";
     }
-  </script>
+  }
+</script>
+
 </body>
 </html>
