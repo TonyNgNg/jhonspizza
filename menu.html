@@ -3,46 +3,110 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Menú - Jhon's Pizza</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Jhon's Pizza - Promos</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background: #fff7f0;
+    }
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .promo {
+      display: flex;
+      align-items: center;
+      background: #fff;
+      padding: 15px;
+      margin: 10px 0;
+      border-radius: 12px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .promo img {
+      width: 150px;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-left: auto;
+    }
+    .promo h3 {
+      margin: 0;
+      font-size: 1.2em;
+    }
+    .promo p {
+      margin: 5px 0;
+    }
+    .price {
+      color: green;
+      font-weight: bold;
+    }
+    #langBtn {
+      padding: 6px 14px;
+      background-color: #000;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+  </style>
 </head>
 <body>
-  <nav class="navbar">
-    <div class="logo">🍕 Jhon's Pizza</div>
-    <ul class="nav-links">
-      <li><a href="index.html">Inicio</a></li>
-      <li><a href="menu.html">Menú</a></li>
-      <li><a href="index.html#contacto">Contacto</a></li>
-    </ul>
-    <a href="https://wa.me/573006005388" class="ordenar-btn">Ordenar por WhatsApp</a>
-  </nav>
+  <div class="header">
+    <h1><span data-es="Promos del Mes 🤩🤩" data-en="Deals of the Month 🤩🤩">Promos del Mes 🤩🤩</span></h1>
+    <button onclick="switchLanguage()" id="langBtn">English</button>
+  </div>
 
-  <main class="menu">
-    <h1>Menú de Pizzas</h1>
-    <div class="menu-grid">
-      <div class="item">
-        <img src="https://images.unsplash.com/photo-1601924582971-c9ad0673a2c5" alt="Pizza Margarita">
-        <h3>Pizza Margarita</h3>
-        <p>$20.000 COP</p>
-        <a href="https://wa.me/573001112233?text=Quiero%20una%20Pizza%20Margarita" class="btn">Ordenar</a>
-      </div>
-      <div class="item">
-        <img src="https://images.unsplash.com/photo-1601924579760-b41de05b2b21" alt="Pizza Pepperoni">
-        <h3>Pizza Pepperoni</h3>
-        <p>$25.000 COP</p>
-        <a href="https://wa.me/573001112233?text=Quiero%20una%20Pizza%20Pepperoni" class="btn">Ordenar</a>
-      </div>
-      <div class="item">
-        <img src="https://images.unsplash.com/photo-1594007654729-407eedc4f007" alt="Pizza Vegetariana">
-        <h3>Pizza Vegetariana</h3>
-        <p>$22.000 COP</p>
-        <a href="https://wa.me/573001112233?text=Quiero%20una%20Pizza%20Vegetariana" class="btn">Ordenar</a>
-      </div>
+  <!-- Promo 1 -->
+  <div class="promo">
+    <div>
+      <h3><span data-es="Combo 1: Pizza Pequeña + Gaseosa 250ml" data-en="Combo 1: Small Pizza + 250ml Soda">Combo 1: Pizza Pequeña + Gaseosa 250ml</span></h3>
+      <p class="price"><span data-es="$30,000" data-en="$30,000">$30,000</span></p>
+      <p><span data-es="Pizza Pequeña 21 cms sabor a elección..." data-en="21cm Small Pizza with flavor of choice, includes 250ml soda">Pizza Pequeña 21 cms sabor a elección...</span></p>
     </div>
-  </main>
+    <img src="images/pizza1.jpg" alt="Combo 1">
+  </div>
 
-  <footer class="footer">
-    <p>&copy; 2025 Jhon's Pizza - Todos los derechos reservados</p>
-  </footer>
+  <!-- Promo 2 -->
+  <div class="promo">
+    <div>
+      <h3><span data-es="Combo 2: Pizza Pequeña, Pizza Pantalón + Gaseosa" data-en="Combo 2: Small Pizza, Pantalon Pizza + Soda">Combo 2: Pizza Pequeña, Pizza Pantalón + Gaseosa</span></h3>
+      <p class="price"><span data-es="$59,900" data-en="$59,900">$59,900</span></p>
+      <p><span data-es="Pizza Pantalone Tradicional, Pizza pequeña de 4 porciones y Gaseosa litro Postobón." data-en="Traditional Pantalone Pizza, 4-slice small pizza, and 1-liter Postobon soda">Pizza Pantalone Tradicional, Pizza pequeña de 4 porciones...</span></p>
+    </div>
+    <img src="images/pizza2.jpg" alt="Combo 2">
+  </div>
+
+  <!-- Promo 3 -->
+  <div class="promo">
+    <div>
+      <h3><span data-es="Combo 3: Pizza Grande + Gaseosa Litro" data-en="Combo 3: Large Pizza + 1L Soda">Combo 3: Pizza Grande + Gaseosa Litro</span></h3>
+      <p class="price"><span data-es="$60,000" data-en="$60,000">$60,000</span></p>
+      <p><span data-es="Pizza Grande 35 Cms, 8 porciones..." data-en="35cm Large Pizza, 8 slices, soda (Manzana or Colombiana)">Pizza Grande 35 Cms, 8 porciones...</span></p>
+    </div>
+    <img src="images/pizza3.jpg" alt="Combo 3">
+  </div>
+
+  <!-- Promo 4 -->
+  <div class="promo">
+    <div>
+      <h3><span data-es="Pizza Mediana Promo DIDI 26 Cms" data-en="Medium Pizza Promo DIDI 26cm">Pizza Mediana Promo DIDI 26 Cms</span></h3>
+      <p class="price"><span data-es="$35,900" data-en="$35,900">$35,900</span></p>
+      <p><span data-es="Pizza 6 porciones, 26 cms, masa artesanal..." data-en="6-slice, 26cm artisanal pizza, Neapolitan sauce, choice of flavor (No drink)">Pizza 6 porciones, 26 cms...</span></p>
+    </div>
+    <img src="images/pizza4.jpg" alt="Promo DIDI">
+  </div>
+
+  <!-- Promo 5 -->
+  <div class="promo">
+    <div>
+      <h3><span data-es="Super Promo DIDI Mediana con Gaseosa Litro" data-en="Super DIDI Medium Pizza + 1L Soda Promo">Super Promo DIDI Mediana con Gaseosa Litro</span></h3>
+      <p class="price"><span data-es="$43,900" data-en="$43,900">$43,900</span></p>
+      <p><span data-es="Pizza Mediana Promo DIDI 26 Cms sabores a elección..." data-en="Medium DIDI Promo Pizza 26cm, choice of flavor, includes 1L soda">Pizza Mediana Promo DIDI 26 Cms sabores a elección...</span></p>
+    </div>
+    <img src="images/pizza5.jpg" alt="Promo 5">
+  </div>
+
 </body>
 </html>
